@@ -200,13 +200,13 @@ export function MetricsOverview() {
 
 export function AccuracyBatchsizeView() {
   return (
-    <ReactECharts option={acc_v_batchsize_options} style={{ width: '400px' }} />
+    <ReactECharts option={acc_v_batchsize_options} style={{ width: '100%', margin: '0 auto' }} />
   )
 }
 
 export function AccuracyLearningRateView() {
   return (
-    <ReactECharts option={acc_v_lr_options} style={{ width: '400px' }} />
+    <ReactECharts option={acc_v_lr_options} style={{ width: '100%', margin: '0 auto' }} />
   )
 }
 
