@@ -192,6 +192,24 @@ let acc_v_lr_options = {
   }],
 };
 
+export function MetricsOverview() {
+  return (
+    <ReactECharts option={acc_v_names_options} style={{ width: '100%', margin: '0 auto' }} />
+  )
+}
+
+export function AccuracyBatchsizeView() {
+  return (
+    <ReactECharts option={acc_v_batchsize_options} style={{ width: '400px' }} />
+  )
+}
+
+export function AccuracyLearningRateView() {
+  return (
+    <ReactECharts option={acc_v_lr_options} style={{ width: '400px' }} />
+  )
+}
+
 export default function LineGraph(props) {
     return (
     <>

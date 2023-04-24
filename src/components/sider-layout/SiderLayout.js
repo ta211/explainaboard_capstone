@@ -39,8 +39,8 @@ export default function SiderLayout(props) {
     };
 
     return (
-        <AntdLayout style={{ minHeight: "100vh" }}>
-        <AntdLayout.Sider collapsible collapsed={collapsed} onCollapse={toggle}>
+        <AntdLayout hasSider style={{ minHeight: "100vh", maxWidth: "100vw", overflow: "hidden" }}>
+        <AntdLayout.Sider collapsible collapsed={collapsed} onCollapse={toggle} style={{position: "fixed", minHeight: "100vh"}}>
             <Menu
                 theme="dark"
                 mode="inline"
@@ -61,7 +61,7 @@ export default function SiderLayout(props) {
             >
             </Menu>
         </AntdLayout.Sider>
-        <AntdLayout className="site-layout">
+        <AntdLayout className="site-layout" style={{marginLeft: "200px"}}>
             <AntdLayout.Header className="site-layout-header">
             <div className="header-items-container">
                 <div className="header-icon">
@@ -78,7 +78,7 @@ export default function SiderLayout(props) {
             </AntdLayout.Header>
             <AntdLayout.Content>
             <div className="site-layout-content">
-                {/* <Outlet /> */}
+                {props.children}
             </div>
             </AntdLayout.Content>
         </AntdLayout>
