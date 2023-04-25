@@ -1,26 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+
+import { ConfigProvider } from 'antd';
 
 import ProjectOverview from './pages/project-overview/ProjectOverview';
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
-      <ProjectOverview />
+      <ConfigProvider
+        theme={{
+          token: {
+            fontSizeHeading1: 24,
+            lineHeightHeading1: "40px",
+            fontSizeHeading2: 20,
+            lineHeightHeading2: "40px",
+            fontSizeHeading3: 20,
+            lineHeightHeading3: "40px",
+            fontSizeHeading3: 18,
+            lineHeightHeading3: "40px",
+          }
+        }}
+      >
+          <ProjectOverview />
+      </ConfigProvider>
     </div>
   );
 }
