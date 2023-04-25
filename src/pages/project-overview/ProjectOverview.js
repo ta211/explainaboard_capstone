@@ -5,6 +5,9 @@ import {
     LeftOutlined,
 } from "@ant-design/icons";
 
+import ThumbsUp from "../../img/ThumbsUp.svg";
+import ThumbsDown from "../../img/ThumbsDown.svg";
+
 import SiderLayout from "../../components/sider-layout/SiderLayout";
 import { MetricsOverview, AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/LineGraph";
 import MetadataTable from "../../components/graphs/MetadataTable";
@@ -27,13 +30,6 @@ const metricsTabList = [
 ];
 
 export default function ProjectOverview(props) {
-    const [collapsed, setCollapsed] = useState(false);
-    const deployment = process.env.REACT_APP_DEPLOYMENT;
-
-    const toggle = () => {
-        setCollapsed((curr) => !curr);
-    };
-
     return (
         <SiderLayout>
             <Space.Compact className="project-overview" direction="vertical" align="start" block>
@@ -66,12 +62,32 @@ export default function ProjectOverview(props) {
                 </Space>
                 <Space className="projects-charts-container" wrap>
                     <Card><AccuracyBatchsizeView /></Card>
-                    <Card><AccuracyBatchsizeView /></Card>
-                    <Card><AccuracyBatchsizeView /></Card>
+                    <Card><AccuracyLearningRateView /></Card>
+                    <Card><AccuracyLearningRateView /></Card>
                     <Card><AccuracyBatchsizeView /></Card>
                 </Space>
 
                 <Typography.Title level={1}>Insights</Typography.Title>
+                <Card className="projects-insights-container">
+                    <Space align="baseline">
+                        <img src={ThumbsUp} alt="A good thing" />
+                        <Typography.Title level={4}>
+                            System 1 on average has highest accuracy predicting all labels.
+                        </Typography.Title>
+                    </Space>
+                    <Space align="baseline">
+                        <img src={ThumbsUp} alt="A good thing" />
+                        <Typography.Title level={4}>
+                        System 5 outperforms all other systems for large text length.
+                        </Typography.Title>
+                    </Space>
+                    <Space align="baseline">
+                        <img src={ThumbsDown} alt="A bad thing" />
+                        <Typography.Title level={4}>
+                        System 2 performs worse than other systems overall for text length under 31 tokens.
+                        </Typography.Title>
+                    </Space>
+                </Card>
             </Space.Compact>
         </SiderLayout>
     );

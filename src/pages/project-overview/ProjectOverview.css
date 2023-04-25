@@ -32,3 +32,24 @@
 .projects-charts-container > * {
     width: calc(50% - var(--gap-horizontal) / 2);
 }
+
+.projects-insights-container {
+    padding: 0;
+}
+
+.projects-insights-container .ant-card-body {
+    display: grid;
+    gap: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 24px;
+}
+
+.projects-insights-container h4 {
+    margin: 0;
+    font-weight: normal;
+}
+
+.projects-insights-container img {
+    height: 20px;
+}
