@@ -61,7 +61,7 @@ export default function SiderLayout(props) {
             >
             </Menu>
         </AntdLayout.Sider>
-        <AntdLayout className="site-layout" style={{marginLeft: "200px"}}>
+        <AntdLayout className="site-layout" style={{marginLeft: collapsed ? "80px" : "200px"}}>
             <AntdLayout.Header className="site-layout-header">
             <div className="header-items-container">
                 <div className="header-icon">

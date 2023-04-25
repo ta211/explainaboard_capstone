@@ -4,7 +4,7 @@
 }
 
 .project-overview {
-    margin: 20px var(--margin-horizontal);
+    margin: 20px var(--margin-horizontal) 60px var(--margin-horizontal);
 }
 
 .project-overview > button {
