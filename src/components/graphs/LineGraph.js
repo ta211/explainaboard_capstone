@@ -1,10 +1,10 @@
 import ReactECharts from "echarts-for-react";
 
 export default function LineGraph({
-    xAxis_data,
-    xAxis_name,
-    yAxis_data,
-    yAxis_name,
+    xAxisData,
+    xAxisName,
+    yAxisData,
+    yAxisName,
     width = "1000px",
 }) {
     const option = {
@@ -16,8 +16,8 @@ export default function LineGraph({
             trigger: 'axis',
         },
         xAxis:{
-            data: xAxis_data,
-            name: xAxis_name,
+            data: xAxisData,
+            name: xAxisName,
             axisLabel: {
                 // rotate: 90,
             },
@@ -30,7 +30,7 @@ export default function LineGraph({
             }
         },
         yAxis:{
-            name: yAxis_name,
+            name: yAxisName,
             min: function (value) {
                 return Math.round(Math.max(value.min - 10, 0));
             },
@@ -49,9 +49,9 @@ export default function LineGraph({
         series:[{
             type: 'line',
             // id: 'acc',
-            name: yAxis_name,
+            name: yAxisName,
             showSymbol: false,
-            data: yAxis_data,
+            data: yAxisData,
             lineStyle: {
                 // color: 'rgba(235,107,35,0.8)',
             }
