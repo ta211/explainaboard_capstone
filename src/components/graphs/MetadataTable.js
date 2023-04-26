@@ -48,13 +48,11 @@ const rowSelection = {
 };
 
 export default function MetadataTable() {
-    const [selectionType, setSelectionType] = useState('checkbox');
-
     return (
     <div>
         <Table
             rowSelection={{
-                type: selectionType,
+                type: "checkbox",
                 ...rowSelection,
             }}
             columns={columns}
