@@ -3,48 +3,37 @@ import { useState } from 'react';
 
 import "./MetadataTable.css";
 
+import { systems } from  "../../data/data";
+
+function variableNameToDisplay(name) {
+    const parts = name.split("_");
+    return {
+        title: parts.map(part => part[0].toUpperCase() + part.substring(1)).join(" "),
+        dataIndex: name,
+    };
+}
+
 const columns = [
     {
         title: 'Name',
         dataIndex: 'name',
         render: (text) => <a>{text}</a>,
     },
-    {
-        title: 'Age',
-        dataIndex: 'age',
-    },
-    {
-        title: 'Address',
-        dataIndex: 'address',
-    },
+    ...Object.keys(systems[0]).slice(0, -2).map(variableNameToDisplay)
 ];
 
-const data = [
-    {
-        key: '1',
-        name: 'John Brown',
-        age: 32,
-        address: 'New York No. 1 Lake Park',
-    },
-    {
-        key: '2',
-        name: 'Jim Green',
-        age: 42,
-        address: 'London No. 1 Lake Park',
-    },
-    {
-        key: '3',
-        name: 'Joe Black',
-        age: 32,
-        address: 'Sydney No. 1 Lake Park',
-    },
-    // {
-    //     key: '4',
-    //     name: 'Disabled User',
-    //     age: 99,
-    //     address: 'Sydney No. 1 Lake Park',
-    // },
-];
+const data = systems.map((system, index) => {
+    return {
+        key: `${index + 1}`,
+        name: `System ${index+1}`,
+        accuracy: system.accuracy,
+        precision: system.precision,
+        recall: system.recall,
+        batch_size: system.batch_size,
+        learning_rate: system.learning_rate,
+    }
+})
+
 
 // rowSelection object indicates the need for row selection
 const rowSelection = {
