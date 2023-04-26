@@ -9,8 +9,11 @@ import ThumbsUp from "../../img/ThumbsUp.svg";
 import ThumbsDown from "../../img/ThumbsDown.svg";
 
 import SiderLayout from "../../components/sider-layout/SiderLayout";
-import { MetricsOverview, AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/LineGraph";
+import LineGraph from "../../components/graphs/LineGraph";
+import { MetricsOverview, AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/HardcodedGraphs";
 import MetadataTable from "../../components/graphs/MetadataTable";
+
+import { systems } from  "../../data/data";
 
 import "./ProjectOverview.css";
 
@@ -30,6 +33,8 @@ const metricsTabList = [
 ];
 
 export default function ProjectOverview(props) {
+    const [metric, setMetric] = useState("accuracy");
+
     return (
         <SiderLayout>
             <Space.Compact className="project-overview" direction="vertical" align="start" block>
@@ -48,9 +53,16 @@ export default function ProjectOverview(props) {
                 <Typography.Title level={1} className="metrics-title">Metrics</Typography.Title>
                 <Card
                     tabList={metricsTabList}
-                    activeTabKey={metricsTabList[0].key}
+                    activeTabKey={metric}
+                    onTabChange={metric_key => setMetric(metric_key)}
                 >
-                    <MetricsOverview />
+                    {/* <MetricsOverview /> */}
+                    <LineGraph 
+                        xAxis_data={[...Array(5).keys()].map(id => `System ${id+1}`)}
+                        xAxis_name="Systems"
+                        yAxis_data={systems.map(system => system[metric]*100)}
+                        yAxis_name={metric[0].toUpperCase() + metric.substring(1) + " (%)"}
+                    />
                 </Card>
                 
                 <Typography.Title level={1}>Key Value Table</Typography.Title>
