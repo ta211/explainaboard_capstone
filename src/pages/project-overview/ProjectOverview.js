@@ -34,6 +34,7 @@ const metricsTabList = [
 
 export default function ProjectOverview(props) {
     const [metric, setMetric] = useState("accuracy");
+    const [selectedSystems, setSelectedSystems] = useState(systems.map(system => system.name));
 
     return (
         <SiderLayout>
@@ -58,15 +59,19 @@ export default function ProjectOverview(props) {
                 >
                     {/* <MetricsOverview /> */}
                     <LineGraph 
-                        xAxis_data={[...Array(5).keys()].map(id => `System ${id+1}`)}
-                        xAxis_name="Systems"
-                        yAxis_data={systems.map(system => system[metric]*100)}
-                        yAxis_name={metric[0].toUpperCase() + metric.substring(1) + " (%)"}
+                        xAxisData={systems.map(system => system.name)}
+                        xAxisName="Systems"
+                        yAxisData={systems.map(system => system[metric]*100)}
+                        yAxisName={metric[0].toUpperCase() + metric.substring(1) + " (%)"}
                     />
                 </Card>
                 
                 <Typography.Title level={1}>Key Value Table</Typography.Title>
-                <MetadataTable />
+                <MetadataTable 
+                    selectedSystems={selectedSystems}
+                    setSelectedSystems={setSelectedSystems}
+                    systemsData={systems}
+                />
 
                 <Space align="baseline">
                     <Typography.Title level={1}>Fine-grained Charts</Typography.Title>

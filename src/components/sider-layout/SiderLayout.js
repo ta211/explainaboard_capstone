@@ -71,7 +71,7 @@ export default function SiderLayout(props) {
                 {deployment === "dev" && "(dev environment)"}
                 </div>
                 <div>
-                    Hi, Nightshade Malto!
+                    Hi, Potato Tomato!
                 </div>
                 {/* <UserPanel /> */}
             </div>

@@ -31,7 +31,8 @@ const length_in_tokens = [
 
 // Metrics
 const system1 = {
-    accuracy: 0.5213,
+    name: "System 1",
+    accuracy:0.5213,
     precision: 0.4834,
     recall: 0.4656,
     batch_size: 16,
@@ -56,7 +57,8 @@ const system1 = {
 }
 
 const system2 = {
-    accuracy: 0.3859,
+    name: "System 2",
+    accuracy:0.3859,
     precision: 0.4196,
     recall: 0.4139,
     batch_size: 8, 
@@ -81,7 +83,8 @@ const system2 = {
 }
 
 const system3 = {
-    accuracy: 0.3742,
+    name: "System 3",
+    accuracy:0.3742,
     precision: 0.4049,
     recall: 0.3665,
     batch_size: 8,
@@ -106,7 +109,8 @@ const system3 = {
 }
 
 const system4 = {
-    accuracy: 0.4708,
+    name: "System 4",
+    accuracy:0.4708,
     precision: 0.5082,
     recall: 0.5139,
     batch_size: 16,
@@ -131,7 +135,8 @@ const system4 = {
 }
 
 const system5 = {
-    accuracy: 0.5312,
+    name: "System 5",
+    accuracy:0.5312,
     precision: 0.5438,
     recall: 0.5492,
     batch_size: 8,
