@@ -2,17 +2,12 @@ import { Button, Table } from 'antd';
 
 import "./MetadataTable.css";
 
-function variableNameToDisplay(name) {
-    const parts = name.split("_");
-    return {
-        title: parts.map(part => part[0].toUpperCase() + part.substring(1)).join(" "),
-        dataIndex: name,
-    };
-}
+import { variableNameToDisplay } from "../../helper/helper";
 
 export default function MetadataTable({
     selectedSystems,
     setSelectedSystems,
+    setDisplaySystems,
     systemsData,
 }) {
     const columns = [
@@ -21,7 +16,14 @@ export default function MetadataTable({
             dataIndex: 'name',
             render: (text) => <a>{text}</a>,
         },
-        ...Object.keys(systemsData[0]).slice(1, -2).map(variableNameToDisplay)
+        ...Object.keys(systemsData[0]).slice(1, -2).map(
+            name => {
+                return {
+                    title: variableNameToDisplay(name),
+                    dataIndex: name,
+                };
+            }
+        )
     ];
 
     const data = systemsData.map((system, index) => {
@@ -58,7 +60,7 @@ export default function MetadataTable({
             columns={columns}
             dataSource={data}
         />
-        <Button style={{display: "block", marginTop: "-50px"}}>
+        <Button style={{display: "block", marginTop: "-50px"}} onClick={()=>setDisplaySystems(selectedSystems)}>
             Update Charts to compare the selected systems
         </Button>
     </div>

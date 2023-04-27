@@ -8,10 +8,6 @@ export default function LineGraph({
     width = "1000px",
 }) {
     const option = {
-        title:{
-            left: 'center',
-            text: ''
-        },
         tooltip: {
             trigger: 'axis',
         },
