@@ -58,7 +58,8 @@ export default function LineGraph({
             type: 'line',
             // id: 'acc',
             name: yAxisName,
-            showSymbol: false,
+            symbol: 'circle',
+            symbolSize: 12,
             data: yAxisData,
             lineStyle: {
                 // color: 'rgba(235,107,35,0.8)',
