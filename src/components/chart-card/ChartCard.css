@@ -1,0 +1,5 @@
+.chart-card .ant-card-head {
+    font-size: 18px;
+    border-bottom: none;
+    justify-content: end;
+}

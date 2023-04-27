@@ -1,4 +1,6 @@
-import { Card } from 'antd';
+import { Card, Typography } from 'antd';
+
+import "./ChartCard.css";
 
 export default function ChartCard({
     title,
@@ -6,7 +8,12 @@ export default function ChartCard({
     children,
 }) {
     return (
-        <Card>
+        <Card
+            className="chart-card"
+            extra={insights}
+            title={title}
+        >
+            {/* <Typography.Title className="chart-card-title" level={3}>{title}</Typography.Title> */}
             {children}
         </Card>
     )
