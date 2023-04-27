@@ -35,8 +35,10 @@ const system1 = {
     accuracy:0.5213,
     precision: 0.4834,
     recall: 0.4656,
-    batch_size: 16,
-    learning_rate: 0.0001,
+    metadata: {
+        batch_size: 16,
+        learning_rate: 0.0001,
+    },
     accuracy_by_label: [
         0.78,
         0.47,
@@ -61,8 +63,10 @@ const system2 = {
     accuracy:0.3859,
     precision: 0.4196,
     recall: 0.4139,
-    batch_size: 8, 
-    learning_rate: 0.0003,
+    metadata: {
+        batch_size: 8, 
+        learning_rate: 0.0003,
+    },
     accuracy_by_label: [
         0.62,
         0.25,
@@ -87,8 +91,10 @@ const system3 = {
     accuracy:0.3742,
     precision: 0.4049,
     recall: 0.3665,
-    batch_size: 8,
-    learning_rate: 0.0002,
+    metadata: {
+        batch_size: 8,
+        learning_rate: 0.0002,
+    },
     accuracy_by_label: [
         0.58,
         0.24,
@@ -113,8 +119,10 @@ const system4 = {
     accuracy:0.4708,
     precision: 0.5082,
     recall: 0.5139,
-    batch_size: 16,
-    learning_rate: 0.0003,
+    metadata: {
+        batch_size: 16,
+        learning_rate: 0.0003,
+    },
     accuracy_by_label: [
         0.53,
         0.17,
@@ -139,8 +147,10 @@ const system5 = {
     accuracy:0.5312,
     precision: 0.5438,
     recall: 0.5492,
-    batch_size: 8,
-    learning_rate: 0.0002,
+    metadata: {
+        batch_size: 8,
+        learning_rate: 0.0002,
+    },
     accuracy_by_label: [
         0.64,
         0.37,
