@@ -10,10 +10,12 @@ import ThumbsDown from "../../img/ThumbsDown.svg";
 
 import SiderLayout from "../../components/sider-layout/SiderLayout";
 import LineGraph from "../../components/graphs/LineGraph";
-import { MetricsOverview, AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/HardcodedGraphs";
+import ScatterGraph from "../../components/graphs/ScatterGraph";
+import { AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/HardcodedGraphs";
 import MetadataTable from "../../components/graphs/MetadataTable";
 
 import { systems } from  "../../data/data";
+import { variableNameToDisplay } from "../../helper/helper";
 
 import "./ProjectOverview.css";
 
@@ -35,6 +37,7 @@ const metricsTabList = [
 export default function ProjectOverview(props) {
     const [metric, setMetric] = useState("accuracy");
     const [selectedSystems, setSelectedSystems] = useState(systems.map(system => system.name));
+    const [displaySystems, setDisplaySystems] = useState(systems.map(system => system.name));
 
     return (
         <SiderLayout>
@@ -62,7 +65,7 @@ export default function ProjectOverview(props) {
                         xAxisData={systems.map(system => system.name)}
                         xAxisName="Systems"
                         yAxisData={systems.map(system => system[metric]*100)}
-                        yAxisName={metric[0].toUpperCase() + metric.substring(1) + " (%)"}
+                        yAxisName={variableNameToDisplay(metric) + " (%)"}
                     />
                 </Card>
                 
@@ -70,6 +73,7 @@ export default function ProjectOverview(props) {
                 <MetadataTable 
                     selectedSystems={selectedSystems}
                     setSelectedSystems={setSelectedSystems}
+                    setDisplaySystems={setDisplaySystems}
                     systemsData={systems}
                 />
 
@@ -78,8 +82,27 @@ export default function ProjectOverview(props) {
                     <Typography.Text type="secondary">For selected systems</Typography.Text>
                 </Space>
                 <Space className="projects-charts-container" wrap>
-                    <Card><AccuracyBatchsizeView /></Card>
-                    <Card><AccuracyLearningRateView /></Card>
+                    {/* Next step: autogenerate metric vs metadata graphs based on the metadata given. */}
+                    <Card>
+                        <ScatterGraph 
+                            xAxisData={systems.map(system => system.batch_size)}
+                            xAxisName={variableNameToDisplay("batch_size")}
+                            yAxisData={systems.map(system => system[metric] * 100)}
+                            yAxisName={variableNameToDisplay(metric) + " (%)"}
+                            categories={systems.map(system => system.name)}
+                            selectedCategories={displaySystems}
+                        />
+                    </Card>
+                    <Card>
+                        <ScatterGraph 
+                            xAxisData={systems.map(system => system.learning_rate)}
+                            xAxisName={variableNameToDisplay("learning_rate")}
+                            yAxisData={systems.map(system => system[metric] * 100)}
+                            yAxisName={variableNameToDisplay(metric) + " (%)"}
+                            categories={systems.map(system => system.name)}
+                            selectedCategories={displaySystems}
+                        />
+                    </Card>
                     <Card><AccuracyLearningRateView /></Card>
                     <Card><AccuracyBatchsizeView /></Card>
                 </Space>
