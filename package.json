@@ -1,5 +1,6 @@
 {
   "name": "explainaboard_visualizations",
+  "homepage": "https://ta211.github.io/explainaboard_capstone/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -13,7 +14,6 @@
     "antd": "^5.4.4",
     "echarts": "^5.4.2",
     "echarts-for-react": "^3.0.2",
-    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.10.0",
@@ -22,8 +22,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy" : "npm run build",
-    "deploy" : "gh-pages -d build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^5.0.0"
   }
 }
