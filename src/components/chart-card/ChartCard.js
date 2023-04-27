@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Button, Card, Popover, Typography } from 'antd';
+import { Button, Card, Popover, Row, Typography } from 'antd';
 
 import "./ChartCard.css";
 
@@ -17,7 +17,11 @@ export default function ChartCard({
         let insightContent = 
         <div className="insight-content">
             {insights.map((insight, index) => 
-                <Typography.Text key={index} color="white">{insight}</Typography.Text>
+            <Row>
+                <Typography.Text key={index} color="white">
+                    {insights.length > 1 ? "·  " : ""}{insight}
+                </Typography.Text>
+            </Row>
             )}
         </div>;
 

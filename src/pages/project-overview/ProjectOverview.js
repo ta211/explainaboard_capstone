@@ -83,7 +83,7 @@ export default function ProjectOverview(props) {
                     <Typography.Text type="secondary">For selected systems</Typography.Text>
                 </Space>
                 <Space className="projects-charts-container" wrap>
-                    {/* Metric vs Metadata graphs */}
+                    {/* Metric vs Metadata charts */}
                     {
                         Object.keys(systems[0].metadata).map((thisMetadata, index) => {
 
@@ -103,8 +103,18 @@ export default function ProjectOverview(props) {
                             </ChartCard>
                         )})
                     }
-                    <Card><AccuracyLearningRateView /></Card>
-                    <Card><AccuracyBatchsizeView /></Card>
+                    {/* Upgraded original ExplainaBoard charts */}
+                    <ChartCard
+                        title="Accuracy by True Label of the input"
+                        insights={insights["accuracy by true label of the input"]}
+                    >
+                    </ChartCard>
+                    
+                    <ChartCard
+                        title="Accuracy by Text Length of Tokens in the input"
+                        insights={insights["accuracy by text length of tokens in the input"]}
+                    >
+                    </ChartCard>
                 </Space>
 
                 <Typography.Title level={1}>Insights</Typography.Title>

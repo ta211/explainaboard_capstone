@@ -173,7 +173,14 @@ const system5 = {
 const insights = {
     "accuracy vs batch_size": [
         "Overall, with the other metadata fields controled, 16 is a better batch size than 8."
-    ]
+    ],
+    "accuracy by true label of the input": [
+        "System 1 on average has highest accuracy predicting all labels."
+    ],
+    "accuracy by text length of tokens in the input": [
+        "System 5 outperforms all other systems for large text length.",
+        "System 2 performs worse than other systems overall for text length under 31 tokens."
+    ],
 }
 
 const systems = [system1, system2, system3, system4, system5];
