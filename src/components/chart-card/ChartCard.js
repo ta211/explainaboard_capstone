@@ -17,8 +17,8 @@ export default function ChartCard({
         let insightContent = 
         <div className="insight-content">
             {insights.map((insight, index) => 
-            <Row>
-                <Typography.Text key={index} color="white">
+            <Row key={index} >
+                <Typography.Text color="white">
                     {insights.length > 1 ? "·  " : ""}{insight}
                 </Typography.Text>
             </Row>

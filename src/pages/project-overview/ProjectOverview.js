@@ -12,10 +12,9 @@ import SiderLayout from "../../components/sider-layout/SiderLayout";
 import ChartCard from "../../components/chart-card/ChartCard";
 import LineGraph from "../../components/graphs/LineGraph";
 import ScatterGraph from "../../components/graphs/ScatterGraph";
-import { AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/HardcodedGraphs";
 import MetadataTable from "../../components/graphs/MetadataTable";
 
-import { insights, systems } from  "../../data/data";
+import { labels, length_in_tokens, insights, systems } from  "../../data/data";
 import { variableNameToDisplay } from "../../helper/helper";
 
 import "./ProjectOverview.css";
@@ -108,12 +107,28 @@ export default function ProjectOverview(props) {
                         title="Accuracy by True Label of the input"
                         insights={insights["accuracy by true label of the input"]}
                     >
+                        <ScatterGraph 
+                            xAxisData={systems.map(_ => labels)}
+                            xAxisName=""
+                            yAxisData={systems.map(system => system.accuracy_by_label.map(acc => acc * 100))}
+                            yAxisName="Accuracy (%)"
+                            categories={systems.map(system => system.name)}
+                            selectedCategories={displaySystems}
+                        />
                     </ChartCard>
                     
                     <ChartCard
                         title="Accuracy by Text Length of Tokens in the input"
                         insights={insights["accuracy by text length of tokens in the input"]}
                     >
+                        <ScatterGraph
+                            xAxisData={systems.map(_ => length_in_tokens)}
+                            xAxisName=""
+                            yAxisData={systems.map(system => system.accuracy_by_tokens.map(acc => acc * 100))}
+                            yAxisName="Accuracy (%)"
+                            categories={systems.map(system => system.name)}
+                            selectedCategories={displaySystems}
+                        />
                     </ChartCard>
                 </Space>
 

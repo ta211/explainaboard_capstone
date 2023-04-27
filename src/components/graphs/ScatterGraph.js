@@ -1,23 +1,41 @@
 import ReactECharts from "echarts-for-react";
 
+function shouldRotateLabel(labels) {
+    let total = 0;
+    let max = 0;
+    for (let i = 0; i < labels.length; i++) {
+        const currLen = labels[i].length;
+        total += currLen
+        if (currLen > max) {
+            max = currLen;
+        }
+    }
+    if (total > 30) return true;
+    if (max > 30/labels.length) return true;
+    return false;
+}
+
 export default function ScatterGraph({
-    xAxisData, // list of x-axis data in each categories
+    xAxisData, // list of x-axis data in each categories (e.g. category = system)
     xAxisName, // just a name
-    yAxisData, // list of x-axis data in each categories
+    yAxisData, // list of y-axis data in each categories
     yAxisName, // just a name
     categories, // list of category names
     selectedCategories,
     width = "1000px",
 }) {
-    function getSeriesData(categoryName, seriesID) {
-        const thisXAxisData = xAxisData[seriesID];
-        const thisYAxisData = yAxisData[seriesID];
+    const xIsLabels = typeof xAxisData[0] === "object";
+
+    function getSeriesData(categoryName, categoryID) {
+        const thisXAxisData = xAxisData[categoryID];
+        const thisYAxisData = yAxisData[categoryID];
         let data;
-        if (thisXAxisData.type == 'Object') {
-            data = thisXAxisData.map((xVal, id) => [xVal, thisYAxisData[id]]);
+        if (xIsLabels) {
+            data = thisXAxisData.map((xVal, seriesID) => [xVal, thisYAxisData[seriesID]]);
         } else {
             data = [[thisXAxisData, thisYAxisData]];
         }
+        console.log(data);
         return {
             name: categoryName,
             symbolSize: 12,
@@ -34,7 +52,7 @@ export default function ScatterGraph({
 
     const option = {
         tooltip: {
-            trigger: 'axis',
+            trigger: 'item',
         },
         xAxis: {
             name: xAxisName,
@@ -44,6 +62,16 @@ export default function ScatterGraph({
                 fontSize: "14px",
                 padding: [20, 0, 0, 0],
             },
+            ...xIsLabels && {data: xAxisData[0]},
+            ...xIsLabels && shouldRotateLabel(xAxisData) && {
+                axisLabel: {
+                    interval: 0,
+                    margin: 20,
+                    width: 150,
+                    rotate: 30,
+                    overflow: 'break',
+                }
+            }
         },
         yAxis: {
             name: yAxisName,
@@ -67,11 +95,14 @@ export default function ScatterGraph({
             selected: legendSelected,
             icon: 'path://m 8 0 h 12 a 1 1 0 0 1 0 10 h -12 a 1 1 0 0 1 0 -10',
         },
+        ...xIsLabels && shouldRotateLabel(xAxisData) && {grid: {
+            left: "100px",
+            bottom:"100px",
+        }},
         series: categories.map(getSeriesData),
     };
 
-    console.log(option, selectedCategories);
-
+    console.log(option);
     return (
         <ReactECharts 
             option={option} 
