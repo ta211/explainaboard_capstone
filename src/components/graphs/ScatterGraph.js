@@ -38,9 +38,21 @@ export default function ScatterGraph({
         },
         xAxis: {
             name: xAxisName,
+            nameLocation: 'middle',
+            nameTextStyle: {
+                color: "black",
+                fontSize: "14px",
+                padding: [20, 0, 0, 0],
+            },
         },
         yAxis: {
             name: yAxisName,
+            nameLocation: 'middle',
+            nameTextStyle: {
+                color: "black",
+                fontSize: "14px",
+                padding: [0, 0, 20, 0],
+            },
             splitLine: false,
             axisTick: false,
             min: function (value) {

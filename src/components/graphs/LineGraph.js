@@ -14,6 +14,12 @@ export default function LineGraph({
         xAxis:{
             data: xAxisData,
             name: xAxisName,
+            nameLocation: 'middle',
+            nameTextStyle: {
+                color: "black",
+                fontSize: "14px",
+                padding: [20, 0, 0, 0],
+            },
             axisLabel: {
                 // rotate: 90,
             },
@@ -27,6 +33,12 @@ export default function LineGraph({
         },
         yAxis:{
             name: yAxisName,
+            nameLocation: 'middle',
+            nameTextStyle: {
+                color: "black",
+                fontSize: "14px",
+                padding: [0, 0, 20, 0],
+            },
             min: function (value) {
                 return Math.round(Math.max(value.min - 10, 0));
             },
