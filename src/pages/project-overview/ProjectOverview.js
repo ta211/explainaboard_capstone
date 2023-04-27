@@ -15,7 +15,7 @@ import ScatterGraph from "../../components/graphs/ScatterGraph";
 import { AccuracyBatchsizeView, AccuracyLearningRateView } from "../../components/graphs/HardcodedGraphs";
 import MetadataTable from "../../components/graphs/MetadataTable";
 
-import { systems } from  "../../data/data";
+import { insights, systems } from  "../../data/data";
 import { variableNameToDisplay } from "../../helper/helper";
 
 import "./ProjectOverview.css";
@@ -85,20 +85,23 @@ export default function ProjectOverview(props) {
                 <Space className="projects-charts-container" wrap>
                     {/* Metric vs Metadata graphs */}
                     {
-                        Object.keys(systems[0].metadata).map((thisMetadata, index) => 
-                        <ChartCard
-                            title={`${variableNameToDisplay(metric)} by ${variableNameToDisplay(thisMetadata)}`}
-                        >
-                            <ScatterGraph 
-                                xAxisData={systems.map(system => system.metadata[thisMetadata])}
-                                xAxisName={variableNameToDisplay(thisMetadata)}
-                                yAxisData={systems.map(system => system[metric] * 100)}
-                                yAxisName={variableNameToDisplay(metric) + " (%)"}
-                                categories={systems.map(system => system.name)}
-                                selectedCategories={displaySystems}
-                            />
-                        </ChartCard>
-                        )
+                        Object.keys(systems[0].metadata).map((thisMetadata, index) => {
+
+                            return (
+                            <ChartCard
+                                title={`${variableNameToDisplay(metric)} by ${variableNameToDisplay(thisMetadata)}`}
+                                insights={insights[metric + " vs " + thisMetadata]}
+                            >
+                                <ScatterGraph 
+                                    xAxisData={systems.map(system => system.metadata[thisMetadata])}
+                                    xAxisName={variableNameToDisplay(thisMetadata)}
+                                    yAxisData={systems.map(system => system[metric] * 100)}
+                                    yAxisName={variableNameToDisplay(metric) + " (%)"}
+                                    categories={systems.map(system => system.name)}
+                                    selectedCategories={displaySystems}
+                                />
+                            </ChartCard>
+                        )})
                     }
                     <Card><AccuracyLearningRateView /></Card>
                     <Card><AccuracyBatchsizeView /></Card>

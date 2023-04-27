@@ -170,6 +170,12 @@ const system5 = {
     ]
 }
 
+const insights = {
+    "accuracy vs batch_size": [
+        "Overall, with the other metadata fields controled, 16 is a better batch size than 8."
+    ]
+}
+
 const systems = [system1, system2, system3, system4, system5];
 
-export { labels, labels_size, length_in_tokens, systems };
+export { labels, labels_size, length_in_tokens, insights, systems };
