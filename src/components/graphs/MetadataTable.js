@@ -4,6 +4,13 @@ import "./MetadataTable.css";
 
 import { variableNameToDisplay } from "../../helper/helper";
 
+function generateFilters(data) {
+    return [...new Set(data)].map(val => {return {
+        text: val,
+        value: val,
+    }});
+}
+
 export default function MetadataTable({
     selectedSystems,
     setSelectedSystems,
@@ -15,22 +22,30 @@ export default function MetadataTable({
             title: 'Name',
             dataIndex: 'name',
             render: (text) => <a>{text}</a>,
+            sorter: (a, b) => a.name.localeCompare(b.name),
         },
         ...Object.keys(systemsData[0]).slice(1, 4).map(
-            name => {
+            metricName => {
                 return {
-                    title: variableNameToDisplay(name),
-                    dataIndex: name,
+                    title: variableNameToDisplay(metricName),
+                    dataIndex: metricName,
+                    sorter: (a, b) => a[metricName] - b[metricName],
                 };
-            }
+            },
         ),
         ...Object.keys(systemsData[0].metadata).map(
-            name => {
+            metadataName => {
                 return {
-                    title: variableNameToDisplay(name),
-                    dataIndex: name,
+                    title: variableNameToDisplay(metadataName),
+                    dataIndex: metadataName,
+                    filters: generateFilters(
+                        systemsData.map(system => system.metadata[metadataName])
+                    ),
+                    filterSearch: true,
+                    onFilter: (value, data) => data[metadataName] === value,
+                    sorter: (a, b) => a[metadataName] - b[metadataName],
                 }
-            }
+            },
         )
     ];
 
