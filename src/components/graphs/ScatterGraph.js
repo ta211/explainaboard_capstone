@@ -55,7 +55,7 @@ export default function ScatterGraph({
             trigger: 'item',
         },
         xAxis: {
-            name: xAxisName,
+            name: xIsLabels && shouldRotateLabel(xAxisData) ? "" : xAxisName,
             nameLocation: 'middle',
             nameTextStyle: {
                 color: "black",

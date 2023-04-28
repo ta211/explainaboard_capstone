@@ -123,7 +123,7 @@ export default function ProjectOverview(props) {
                     >
                         <ScatterGraph
                             xAxisData={systems.map(_ => length_in_tokens)}
-                            xAxisName=""
+                            xAxisName="Length of Tokens in the input"
                             yAxisData={systems.map(system => system.accuracy_by_tokens.map(acc => acc * 100))}
                             yAxisName="Accuracy (%)"
                             categories={systems.map(system => system.name)}
