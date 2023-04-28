@@ -35,7 +35,7 @@ export default function ScatterGraph({
         } else {
             data = [[thisXAxisData, thisYAxisData]];
         }
-        console.log(data);
+
         return {
             name: categoryName,
             symbolSize: 12,
@@ -102,7 +102,6 @@ export default function ScatterGraph({
         series: categories.map(getSeriesData),
     };
 
-    console.log(option);
     return (
         <ReactECharts 
             option={option} 
