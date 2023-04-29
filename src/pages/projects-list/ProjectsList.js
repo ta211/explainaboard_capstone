@@ -39,6 +39,7 @@ export default function ProjectsList({setPage}) {
 
                 <Breadcrumb>
                     <Breadcrumb.Item>Projects</Breadcrumb.Item>
+                    <Breadcrumb.Item>All Projects</Breadcrumb.Item>
                 </Breadcrumb>
 
                 <Typography.Title level={1} className="your-projects-title">Your Projects</Typography.Title>

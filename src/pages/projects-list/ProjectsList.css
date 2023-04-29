@@ -15,10 +15,10 @@
     border-radius: inherit !important;
 }
 
-.projects-list .projects-list-header .ant-space-item .projects-button button {
+.projects-list .projects-list-header .ant-space-item .projects-button {
     text-align: left;
     width: min-content;
-    padding-left: 0;
+    padding: 0;
 }
 
 .projects-list .projects-list-header .ant-space-item .projects-search input {
