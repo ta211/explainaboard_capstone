@@ -14,7 +14,8 @@ import LineGraph from "../../components/graphs/LineGraph";
 import ScatterGraph from "../../components/graphs/ScatterGraph";
 import MetadataTable from "../../components/graphs/MetadataTable";
 
-import { labels, length_in_tokens, insights, systems } from  "../../data/data";
+import { labels, length_in_tokens, insights, systems } from  "../../data/bert_project_systems";
+import { your_projects } from "../../data/projects";
 import { variableNameToDisplay } from "../../helper/helper";
 
 import "./ProjectOverview.css";
@@ -51,7 +52,7 @@ export default function ProjectOverview(props) {
 
                 <Breadcrumb>
                     <Breadcrumb.Item>Projects</Breadcrumb.Item>
-                    <Breadcrumb.Item>BERT model</Breadcrumb.Item>
+                    <Breadcrumb.Item>{your_projects[0].name}</Breadcrumb.Item>
                 </Breadcrumb>
                 
                 <Typography.Title level={1} className="metrics-title">Metrics</Typography.Title>

@@ -11,7 +11,9 @@ import {
     FileOutlined,
     GithubFilled
 } from "@ant-design/icons";
-  
+
+import { your_name } from "../../data/projects";
+
 import "./SiderLayout.css";
 
 function getItem(
@@ -71,14 +73,14 @@ export default function SiderLayout(props) {
                 {deployment === "dev" && "(dev environment)"}
                 </div>
                 <div>
-                    Hi, Potato Tomato!
+                    Hi, {your_name}!
                 </div>
                 {/* <UserPanel /> */}
             </div>
             </AntdLayout.Header>
             <AntdLayout.Content>
             <div className="site-layout-content">
-                {props.children}
+                
             </div>
             </AntdLayout.Content>
         </AntdLayout>
