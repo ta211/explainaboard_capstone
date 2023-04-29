@@ -1,10 +1,15 @@
+import React, { useState } from 'react';
+
 import './App.css';
 
 import { ConfigProvider } from 'antd';
 
+import ProjectsList from './pages/projects-list/ProjectsList';
 import ProjectOverview from './pages/project-overview/ProjectOverview';
 
 function App() {
+  const [page, setPage] = useState("list");
+
   return (
     <div className="App">
       <ConfigProvider
@@ -21,7 +26,7 @@ function App() {
           }
         }}
       >
-          <ProjectOverview />
+        {page == "list" ? <ProjectsList setPage={setPage}/> : <ProjectOverview setPage={setPage}/>}
       </ConfigProvider>
     </div>
   );

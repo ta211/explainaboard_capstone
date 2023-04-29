@@ -1,0 +1,27 @@
+.project-details .project-owners {
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.project-details button {
+    padding: 0 2px;
+    height: min-content;
+    border-radius: 6px !important;
+}
+
+.project-card {
+    height: 100%;
+}
+
+.project-card .ant-card-head-title {
+    white-space: pre-wrap;
+    padding: 8px 0;
+}
+
+.project-card .ant-card-head-title a{
+    color: black;
+}
+
+.project-card .ant-card-extra button {
+    padding: 0;
+}

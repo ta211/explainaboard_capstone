@@ -17,7 +17,7 @@ const your_projects = [
         name: "[BERT] Article Topic Classfication",
         task: "text-classification",
         dataset: "gmu_anlp",
-        authors: [
+        owners: [
             your_name,
             names[4],
             names[6],
@@ -27,7 +27,7 @@ const your_projects = [
         name: "[GPT-4] Meeting Summarization",
         task: "summarization",
         dataset: "gaokao2019",
-        authors: [
+        owners: [
             your_name,
             names[2],
         ]
@@ -39,7 +39,7 @@ const public_projects = [
         name: "ER Assignment 4",
         task: "named-entity-recognition",
         dataset: "masakhaner-mos",
-        authors: [
+        owners: [
             names[3],
             names[0],
             names[7]
@@ -49,15 +49,16 @@ const public_projects = [
         name: "News Chunking 2023-04",
         task: "chunking",
         dataset: "conll00_chunk",
-        authors: [
+        owners: [
             names[2],
             names[0],
         ]
-    },{
+    },
+    {
         name: "[RoBERTa] Sentiment Analysis on Twitter Data",
         task: "aspect-based-sentiment-classification",
         dataset: "twitter",
-        authors: [
+        owners: [
             names[1],
             names[5],
             names[4],
@@ -67,7 +68,7 @@ const public_projects = [
         name: "[T5] Question Answering on Hot Pot event planning",
         task: "qa-extractive",
         dataset: "hotpot-qa",
-        authors: [
+        owners: [
             your_name,
             names[2],
             names[8],
@@ -77,7 +78,7 @@ const public_projects = [
         name: "[GPT-3] Poetry Generation using Wikipedia dataset",
         task: "conditional-generation",
         dataset: "wikilingua|en",
-        authors: [
+        owners: [
             names[8],
             names[3],
         ]
@@ -86,9 +87,28 @@ const public_projects = [
         name: "[XLNet] Multi-lingual Machine Translation",
         task: "machine-translation",
         dataset: "wmt-20|encs",
-        authors: [
+        owners: [
             names[3],
             names[7],
+        ]
+    },
+    {
+        name: "[DistilBERT] Fake News Detection",
+        task: "binary-classification",
+        dataset: "FakeNewsNet",
+        owners: [
+            names[0],
+            names[5],
+            names[1]
+        ]
+    },
+    {
+        name: "BART-based Text Summarization for Legal Documents",
+        task: "summarization",
+        dataset: "LegalTextNet",
+        owners: [
+            names[3],
+            names[8],
         ]
     }    
 ]

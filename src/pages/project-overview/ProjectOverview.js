@@ -35,7 +35,7 @@ const metricsTabList = [
     },
 ];
 
-export default function ProjectOverview(props) {
+export default function ProjectOverview({setPage}) {
     const [metric, setMetric] = useState("accuracy");
     const [selectedSystems, setSelectedSystems] = useState(systems.map(system => system.name));
     const [displaySystems, setDisplaySystems] = useState(systems.map(system => system.name));
@@ -43,7 +43,7 @@ export default function ProjectOverview(props) {
     return (
         <SiderLayout>
             <Space.Compact className="project-overview" direction="vertical" align="start" block>
-                <Button type="text">
+                <Button type="text" onClick={() => setPage("list")}>
                     <Space size="large">
                         <LeftOutlined />
                         Projects
