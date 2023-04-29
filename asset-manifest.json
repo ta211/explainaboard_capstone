@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/explainaboard_capstone/static/css/main.fb7d2b1c.css",
-    "main.js": "/explainaboard_capstone/static/js/main.cf0c08a3.js",
+    "main.css": "/explainaboard_capstone/static/css/main.6a35b5aa.css",
+    "main.js": "/explainaboard_capstone/static/js/main.3ed4beb4.js",
     "static/js/787.48ce2bed.chunk.js": "/explainaboard_capstone/static/js/787.48ce2bed.chunk.js",
     "static/media/logo-simple.png": "/explainaboard_capstone/static/media/logo-simple.8b060f35f2e40debd3a3.png",
     "index.html": "/explainaboard_capstone/index.html",
     "static/media/ThumbsUp.svg": "/explainaboard_capstone/static/media/ThumbsUp.40dde2edb327fe47a42a7b2073d87137.svg",
     "static/media/ThumbsDown.svg": "/explainaboard_capstone/static/media/ThumbsDown.022a8fd8ba44908821b91ef9ecd63fd6.svg",
-    "main.fb7d2b1c.css.map": "/explainaboard_capstone/static/css/main.fb7d2b1c.css.map",
-    "main.cf0c08a3.js.map": "/explainaboard_capstone/static/js/main.cf0c08a3.js.map",
+    "main.6a35b5aa.css.map": "/explainaboard_capstone/static/css/main.6a35b5aa.css.map",
+    "main.3ed4beb4.js.map": "/explainaboard_capstone/static/js/main.3ed4beb4.js.map",
     "787.48ce2bed.chunk.js.map": "/explainaboard_capstone/static/js/787.48ce2bed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fb7d2b1c.css",
-    "static/js/main.cf0c08a3.js"
+    "static/css/main.6a35b5aa.css",
+    "static/js/main.3ed4beb4.js"
   ]
 }
