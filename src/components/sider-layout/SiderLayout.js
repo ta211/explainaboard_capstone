@@ -80,7 +80,7 @@ export default function SiderLayout(props) {
             </AntdLayout.Header>
             <AntdLayout.Content>
             <div className="site-layout-content">
-                
+                {props.children}
             </div>
             </AntdLayout.Content>
         </AntdLayout>
