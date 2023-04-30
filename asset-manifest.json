@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/explainaboard_capstone/static/css/main.59bfa3c0.css",
-    "main.js": "/explainaboard_capstone/static/js/main.96ef4a4b.js",
+    "main.css": "/explainaboard_capstone/static/css/main.cb414c64.css",
+    "main.js": "/explainaboard_capstone/static/js/main.2cbb75f1.js",
     "static/js/787.48ce2bed.chunk.js": "/explainaboard_capstone/static/js/787.48ce2bed.chunk.js",
     "static/media/logo-simple.png": "/explainaboard_capstone/static/media/logo-simple.8b060f35f2e40debd3a3.png",
     "index.html": "/explainaboard_capstone/index.html",
     "static/media/ThumbsUp.svg": "/explainaboard_capstone/static/media/ThumbsUp.40dde2edb327fe47a42a7b2073d87137.svg",
     "static/media/ThumbsDown.svg": "/explainaboard_capstone/static/media/ThumbsDown.022a8fd8ba44908821b91ef9ecd63fd6.svg",
-    "main.59bfa3c0.css.map": "/explainaboard_capstone/static/css/main.59bfa3c0.css.map",
-    "main.96ef4a4b.js.map": "/explainaboard_capstone/static/js/main.96ef4a4b.js.map",
+    "main.cb414c64.css.map": "/explainaboard_capstone/static/css/main.cb414c64.css.map",
+    "main.2cbb75f1.js.map": "/explainaboard_capstone/static/js/main.2cbb75f1.js.map",
     "787.48ce2bed.chunk.js.map": "/explainaboard_capstone/static/js/787.48ce2bed.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.59bfa3c0.css",
-    "static/js/main.96ef4a4b.js"
+    "static/css/main.cb414c64.css",
+    "static/js/main.2cbb75f1.js"
   ]
 }
