@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 import { Button, Card, Col, Space, Typography } from 'antd';
 
 import { EditTwoTone } from '@ant-design/icons';
@@ -19,7 +17,7 @@ export default function ProjectCard({
         <Card
             className="project-card"
             title={<a onClick={() => {
-                if (title.indexOf("[BERT]") != -1) {
+                if (title.indexOf("[BERT]") !== -1) {
                     setPage("project-overview");
                 }
             }}>
@@ -34,7 +32,7 @@ export default function ProjectCard({
                 <br/>
                 owners: <Space size={0} className="project-owners">
                     {owners.map((author, id) => {
-                    if (id==0 && mine) {
+                    if ((id === 0) && mine) {
                         return (<Button ghost key={`author-${id}`}>
                                     <Typography.Text strong>{author}</Typography.Text>
                                 </Button>);

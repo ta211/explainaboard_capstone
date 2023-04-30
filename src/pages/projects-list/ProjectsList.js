@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button, Input, Layout as AntdLayout, Row, Space, Typography } from "antd";
+import { Button, Input, Row, Typography } from "antd";
 
 import SiderLayout from "../../components/sider-layout/SiderLayout";
 import ProjectCard from "../../components/project-card/ProjectCard";

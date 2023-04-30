@@ -47,7 +47,7 @@ export default function ScatterGraph({
     let legendSelected = {};
     for (let i = 0; i < categories.length; i++) {
         const cat = categories[i];
-        legendSelected[cat] = selectedCategories.indexOf(cat) != -1;
+        legendSelected[cat] = selectedCategories.indexOf(cat) !== -1;
     }
 
     const option = {

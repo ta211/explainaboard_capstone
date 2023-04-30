@@ -26,7 +26,7 @@ function App() {
           }
         }}
       >
-        {page == "projects-list" ? <ProjectsList setPage={setPage}/> : <ProjectOverview setPage={setPage}/>}
+        {page === "projects-list" ? <ProjectsList setPage={setPage}/> : <ProjectOverview setPage={setPage}/>}
       </ConfigProvider>
     </div>
   );

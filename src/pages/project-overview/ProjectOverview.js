@@ -1,9 +1,5 @@
 import React, { useState } from "react";
-import { Breadcrumb, Button, Card, Col, Layout as AntdLayout, Space, Typography } from "antd";
-
-import {
-    LeftOutlined,
-} from "@ant-design/icons";
+import { Button, Card, Space, Typography } from "antd";
 
 import ThumbsUp from "../../img/ThumbsUp.svg";
 import ThumbsDown from "../../img/ThumbsDown.svg";
@@ -15,7 +11,6 @@ import ScatterGraph from "../../components/graphs/ScatterGraph";
 import MetadataTable from "../../components/graphs/MetadataTable";
 
 import { labels, length_in_tokens, insights, systems } from  "../../data/bert_project_systems";
-import { your_projects } from "../../data/projects";
 import { variableNameToDisplay } from "../../helper/helper";
 
 import "./ProjectOverview.css";

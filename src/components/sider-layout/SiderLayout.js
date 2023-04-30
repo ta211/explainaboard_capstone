@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Breadcrumb, Button, Input, Layout as AntdLayout, Menu, Space } from "antd";
+import { Breadcrumb, Button, Layout as AntdLayout, Menu, Space } from "antd";
 import logo from "../../logo-simple.png";
 
 import {
@@ -101,9 +101,9 @@ export default function SiderLayout({
 
                     <Breadcrumb className={`page-breadcrumb ${pageName}-breadcrumb`}>
                         <Breadcrumb.Item>Projects</Breadcrumb.Item>
-                        <Breadcrumb.Item>{pageName == "projects-list" ? "All Projects": your_projects[0].name}</Breadcrumb.Item>
+                        <Breadcrumb.Item>{pageName === "projects-list" ? "All Projects": your_projects[0].name}</Breadcrumb.Item>
                     </Breadcrumb>
-                    
+
                     {children}
                 </Space.Compact>
             </AntdLayout.Content>
