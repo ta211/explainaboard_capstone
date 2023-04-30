@@ -10,7 +10,8 @@ export default function ProjectCard({
     dataset,
     owners,
     mine = false,
-    setPage,
+    pages,
+    setPages,
 }) {
     return (
         <Col span={6}>
@@ -18,7 +19,10 @@ export default function ProjectCard({
             className="project-card"
             title={<a onClick={() => {
                 if (title.indexOf("[BERT]") !== -1) {
-                    setPage("project-overview");
+                    setPages({
+                        ...pages,
+                        curr: "project-overview",
+                    })
                 }
             }}>
                 {title}

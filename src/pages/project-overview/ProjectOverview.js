@@ -31,8 +31,11 @@ const metricsTabList = [
     },
 ];
 
-export default function ProjectOverview({setPage}) {
+export default function ProjectOverview({pages, setPages}) {
     const [metric, setMetric] = useState("accuracy");
+
+    const systemLen = pages["project-overview"].filled ? 5 : 4;
+    
     const [selectedSystems, setSelectedSystems] = useState(systems.map(system => system.name));
     const [displaySystems, setDisplaySystems] = useState(systems.map(system => system.name));
     const [addingSystem, setAddingSystem] = useState(false);
@@ -52,10 +55,11 @@ export default function ProjectOverview({setPage}) {
                     title={"Add a System"}
                     open={addingSystem}
                     setOpen={setAddingSystem}
-                    // onSubmit={() => {setMyProjectLen(2); setAddingSystem(false);}}
+                    onSubmit={() => {setAddingSystem(false); setPages({...pages, "project-overview": {filled: true}});}}
                 />
             </>}
-            setPage={setPage}
+            pages={pages}
+            setPages={setPages}
         >
             <Typography.Title level={1} className="metrics-title">Metrics</Typography.Title>
             <Card
@@ -65,19 +69,19 @@ export default function ProjectOverview({setPage}) {
             >
                 {/* <MetricsOverview /> */}
                 <LineGraph 
-                    xAxisData={systems.map(system => system.name)}
+                    xAxisData={systems.slice(0,systemLen).map(system => system.name)}
                     xAxisName="Systems"
-                    yAxisData={systems.map(system => system[metric]*100)}
+                    yAxisData={systems.slice(0,systemLen).map(system => system[metric]*100)}
                     yAxisName={variableNameToDisplay(metric) + " (%)"}
                 />
             </Card>
             
             <Typography.Title level={1}>Key Value Table</Typography.Title>
             <MetadataTable 
-                selectedSystems={selectedSystems}
+                selectedSystems={selectedSystems.slice(0, systemLen)}
                 setSelectedSystems={setSelectedSystems}
                 setDisplaySystems={setDisplaySystems}
-                systemsData={systems}
+                systemsData={systems.slice(0, systemLen)}
             />
 
             <Space align="baseline">
@@ -95,11 +99,11 @@ export default function ProjectOverview({setPage}) {
                             insights={insights[metric + " vs " + thisMetadata]}
                         >
                             <ScatterGraph 
-                                xAxisData={systems.map(system => system.metadata[thisMetadata])}
+                                xAxisData={systems.slice(0,systemLen).map(system => system.metadata[thisMetadata])}
                                 xAxisName={variableNameToDisplay(thisMetadata)}
-                                yAxisData={systems.map(system => system[metric] * 100)}
+                                yAxisData={systems.slice(0,systemLen).map(system => system[metric] * 100)}
                                 yAxisName={variableNameToDisplay(metric) + " (%)"}
-                                categories={systems.map(system => system.name)}
+                                categories={systems.slice(0,systemLen).map(system => system.name)}
                                 selectedCategories={displaySystems}
                             />
                         </ChartCard>
@@ -111,11 +115,11 @@ export default function ProjectOverview({setPage}) {
                     insights={insights["accuracy by true label of the input"]}
                 >
                     <ScatterGraph 
-                        xAxisData={systems.map(_ => labels)}
+                        xAxisData={systems.slice(0,systemLen).map(_ => labels)}
                         xAxisName=""
-                        yAxisData={systems.map(system => system.accuracy_by_label.map(acc => acc * 100))}
+                        yAxisData={systems.slice(0,systemLen).map(system => system.accuracy_by_label.map(acc => acc * 100))}
                         yAxisName="Accuracy (%)"
-                        categories={systems.map(system => system.name)}
+                        categories={systems.slice(0,systemLen).map(system => system.name)}
                         selectedCategories={displaySystems}
                     />
                 </ChartCard>
@@ -125,11 +129,11 @@ export default function ProjectOverview({setPage}) {
                     insights={insights["accuracy by text length of tokens in the input"]}
                 >
                     <ScatterGraph
-                        xAxisData={systems.map(_ => length_in_tokens)}
+                        xAxisData={systems.slice(0,systemLen).map(_ => length_in_tokens)}
                         xAxisName="Length of Tokens in the input"
-                        yAxisData={systems.map(system => system.accuracy_by_tokens.map(acc => acc * 100))}
+                        yAxisData={systems.slice(0,systemLen).map(system => system.accuracy_by_tokens.map(acc => acc * 100))}
                         yAxisName="Accuracy (%)"
-                        categories={systems.map(system => system.name)}
+                        categories={systems.slice(0,systemLen).map(system => system.name)}
                         selectedCategories={displaySystems}
                     />
                 </ChartCard>

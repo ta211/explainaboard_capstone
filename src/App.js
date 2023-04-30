@@ -8,7 +8,11 @@ import ProjectsList from './pages/projects-list/ProjectsList';
 import ProjectOverview from './pages/project-overview/ProjectOverview';
 
 function App() {
-  const [page, setPage] = useState("projects-list");
+  const [pages, setPages] = useState({
+    curr: "projects-list",
+    "projects-list": {filled: false},
+    "project-overview": {filled: false},
+  });
 
   return (
     <div className="App">
@@ -26,7 +30,9 @@ function App() {
           }
         }}
       >
-        {page === "projects-list" ? <ProjectsList setPage={setPage}/> : <ProjectOverview setPage={setPage}/>}
+        {pages.curr === "projects-list" ? 
+        <ProjectsList pages={pages} setPages={setPages}/> : 
+        <ProjectOverview pages={pages} setPages={setPages}/>}
       </ConfigProvider>
     </div>
   );

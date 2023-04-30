@@ -34,9 +34,9 @@ function getItem(
 }
 
 export default function SiderLayout({
-    pageName,
     extra = null,
-    setPage,
+    pages,
+    setPages,
     children,
 }) {
     const [collapsed, setCollapsed] = useState(false);
@@ -85,23 +85,28 @@ export default function SiderLayout({
             </div>
             </AntdLayout.Header>
             <AntdLayout.Content>
-                <Space.Compact className={`${pageName} sider-layout-content`} direction="vertical" align="start" block>
-                    <Space className={`${pageName}-header sider-layout-content-header`}>
-                        <Button type="text" className="projects-button" onClick={() => setPage("projects-list")}>
+                <Space.Compact className={`${pages.curr} sider-layout-content`} direction="vertical" align="start" block>
+                    <Space className={`${pages.curr}-header sider-layout-content-header`}>
+                        <Button type="text" className="projects-button" onClick={() => {
+                            setPages({
+                                ...pages,
+                                curr: "projects-list",
+                            });
+                        }}>
                             <Space size="large">
                                 <LeftOutlined />
                                 Projects
                             </Space>
                         </Button>
                         
-                        <Space className={`page-toolbar ${pageName}-toolbar`} size="large">
+                        <Space className={`page-toolbar ${pages.curr}-toolbar`} size="large">
                             {extra}
                         </Space>
                     </Space>
 
-                    <Breadcrumb className={`page-breadcrumb ${pageName}-breadcrumb`}>
+                    <Breadcrumb className={`page-breadcrumb ${pages.curr}-breadcrumb`}>
                         <Breadcrumb.Item>Projects</Breadcrumb.Item>
-                        <Breadcrumb.Item>{pageName === "projects-list" ? "All Projects": your_projects[0].name}</Breadcrumb.Item>
+                        <Breadcrumb.Item>{pages.curr === "projects-list" ? "All Projects": your_projects[0].name}</Breadcrumb.Item>
                     </Breadcrumb>
 
                     {children}

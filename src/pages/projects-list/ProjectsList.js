@@ -10,9 +10,10 @@ import "./ProjectsList.css";
 
 import { your_projects, public_projects } from "../../data/projects";
 
-export default function ProjectsList({setPage}) {
+export default function ProjectsList({pages, setPages}) {
     const [addingSystem, setAddingSystem] = useState(false);
-    const [myProjectLen, setMyProjectLen] = useState(1);
+    
+    const myProjectLen = pages["projects-list"].filled ? 2 : 1;
 
     return (        
         <SiderLayout 
@@ -29,13 +30,14 @@ export default function ProjectsList({setPage}) {
                     title={"Create a Project"}
                     open={addingSystem}
                     setOpen={setAddingSystem}
-                    onSubmit={() => {setMyProjectLen(2); setAddingSystem(false);}}
+                    onSubmit={() => {setAddingSystem(false); setPages({...pages, "projects-list":{filled: true}});}}
                 />
                 <Input.Search 
                     className="projects-search"
                     placeholder="Search for a project or system"
             /></>}
-            setPage={setPage}
+            pages={pages}
+            setPages={setPages}
         >
             <Typography.Title level={1} className="your-projects-title">Your Projects</Typography.Title>
             <Row gutter={16}>
@@ -47,7 +49,8 @@ export default function ProjectsList({setPage}) {
                         dataset={project.dataset}
                         owners={project.owners}
                         mine
-                        setPage={setPage}
+                        pages={pages}
+                        setPages={setPages}
                     />
                 )}
             </Row>
