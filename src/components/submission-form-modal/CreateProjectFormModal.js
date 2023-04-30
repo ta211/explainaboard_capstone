@@ -1,6 +1,8 @@
 import { useState } from "react";
 
-import { Divider, Form, Input, Modal, Radio, Select, Space, Steps, Tag } from "antd";
+import { Divider, Form, Input, Modal, Radio, Select, Space, Steps, Tag, Typography } from "antd";
+
+import "./SubmissionFormModal.css";
 
 export default function CreateProjectFormModal({
     title, 
@@ -13,11 +15,12 @@ export default function CreateProjectFormModal({
 
     return (
         <Modal 
-            title={title}
+            title={<Typography.Title level={2}>{title}</Typography.Title>}
             open={open}
             onOk={onSubmit}
             onCancel={() => setOpen(false)}
             okText="Submit"
+            width="60%"
         >
             Upload multiple systems to a project to enable cross-system analysis
             <Divider />
@@ -29,10 +32,10 @@ export default function CreateProjectFormModal({
                     title: 'Project Information',
                     description: 
                     <Form layout="vertical">
-                        <Form.Item label="1. Project Name" required>
+                        <Form.Item label={<Typography.Title level={4}>1.   Project Name</Typography.Title>} required>
                             <Input />
                         </Form.Item>
-                        <Form.Item label="2. Choose Task" required>
+                        <Form.Item label={<Typography.Title level={4}>2.   Choose Task</Typography.Title>} required>
                             <Space.Compact>
                                 <Select placeholder="select a task">
                                     <Select.Option value="demo">Demo</Select.Option>
@@ -41,7 +44,7 @@ export default function CreateProjectFormModal({
                                 <Input placeholder="Output Language" />
                             </Space.Compact>
                         </Form.Item>
-                        <Form.Item label="3. Choose Dataset" required>
+                        <Form.Item label={<Typography.Title level={4}>3.   Choose Dataset</Typography.Title>} required>
                             <Space.Compact>
                                 <Select placeholder="choose a dataset">
                                     <Select.Option value="demo">Demo</Select.Option>
@@ -57,12 +60,24 @@ export default function CreateProjectFormModal({
                     title: 'System Configuration',
                     description: 
                     <Form layout="vertical">
-                        <Form.Item label="4. Choose Metrics" required>
+                        <Form.Item label={<Typography.Title level={4}>4.   Choose Metrics</Typography.Title>} required>
                             Enter metrics manually, or choose from popular metrics. You can edit these later.
-                            <Input />
-                            <Tag>accuracy</Tag>
-                            <Tag>precision</Tag>
-                            <Tag>recall</Tag>
+                            
+                            <Select
+                                mode="multiple"
+                                allowClear
+                                placeholder="Please select at least one metric"
+                                defaultValue={[]}
+                                options={['accuracy', 'precision', 'recall', 'f1'].map(val => {return {
+                                    label: val,
+                                    value: val,
+                                }})}
+                            />
+                            <Space direction="horizontal" className="tag-list">
+                                <Tag>accuracy</Tag>
+                                <Tag>precision</Tag>
+                                <Tag>recall</Tag>
+                            </Space>
                             <br />
                             <a>Show list of available metrics</a>
                         </Form.Item>
@@ -72,17 +87,17 @@ export default function CreateProjectFormModal({
                     title: 'Privacy & Sharing',
                     description:
                     <Form layout="vertical">
-                        <Form.Item label="5. Add COllaborator">
+                        <Form.Item label={<Typography.Title level={4}>5.   Add Collaborator</Typography.Title>}>
                             Enter the email addresses of the users you'd like to share with, pressing enter after each one.
                             <Input />
                         </Form.Item>
-                        <Form.Item label="6. Project Privacy">
+                        <Form.Item label={<Typography.Title level={4}>6.   Project Privacy</Typography.Title>}>
                             <Radio.Group value={isPrivate} onChange={()=>setIsPrivate(!isPrivate)}>
                                 <Radio value={true}>Private</Radio>
                                 <Radio value={false}>Public</Radio>
                             </Radio.Group>
                         </Form.Item>
-                        <Form.Item label="7. Add Tags to System">
+                        <Form.Item label={<Typography.Title level={4}>7.   Add Tags to System</Typography.Title>}>
                             Tags to help yourself and others group your systems
                             <Input />
                             <Tag>experiment</Tag>
