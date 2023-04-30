@@ -9,6 +9,7 @@ import ChartCard from "../../components/chart-card/ChartCard";
 import LineGraph from "../../components/graphs/LineGraph";
 import ScatterGraph from "../../components/graphs/ScatterGraph";
 import MetadataTable from "../../components/graphs/MetadataTable";
+import AddSystemFormModal from "../../components/submission-form-modal/AddSystemFormModal";
 
 import { labels, length_in_tokens, insights, systems } from  "../../data/bert_project_systems";
 import { variableNameToDisplay } from "../../helper/helper";
@@ -34,14 +35,25 @@ export default function ProjectOverview({setPage}) {
     const [metric, setMetric] = useState("accuracy");
     const [selectedSystems, setSelectedSystems] = useState(systems.map(system => system.name));
     const [displaySystems, setDisplaySystems] = useState(systems.map(system => system.name));
+    const [addingSystem, setAddingSystem] = useState(false);
 
     return (
         <SiderLayout
             pageName="project-overview"
             extra={<>
-                <Button type="primary" className="add-system-button">
+                <Button 
+                    type="primary" 
+                    className="add-system-button"
+                    onClick={()=>setAddingSystem(true)}
+                >
                     Add a System
                 </Button>
+                <AddSystemFormModal 
+                    title={"Add a System"}
+                    open={addingSystem}
+                    setOpen={setAddingSystem}
+                    // onSubmit={() => {setMyProjectLen(2); setAddingSystem(false);}}
+                />
             </>}
             setPage={setPage}
         >
