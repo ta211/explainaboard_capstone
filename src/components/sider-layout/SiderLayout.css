@@ -46,3 +46,53 @@
 .ant-menu-item {
     height: 44px;
 }
+
+
+/* For the layout inside the right part */
+
+:root {
+    --margin-horizontal: 40px;
+}
+
+.sider-layout-content {
+    margin: 20px var(--margin-horizontal) 60px var(--margin-horizontal);
+}
+
+/* Header */
+
+.sider-layout-content-header {
+    justify-content: space-between;
+    height: 32px;
+}
+
+.sider-layout-content-header .projects-button {
+    text-align: left;
+    width: min-content;
+    padding: 0;
+}
+
+.sider-layout-content-header .ant-space-item button {
+    border-radius: inherit !important;
+}
+
+/* This one is Projects List specific */
+.sider-layout-content-header .ant-space-item .projects-search input {
+    width: 250px;
+    height: 32px;
+}
+
+/* Breadcrumb Nav */
+
+.sider-layout-content .page-breadcrumb {
+    margin-top: 15px;
+}
+
+/* Rest of content */
+
+.sider-layout-content > * {
+    width: calc(100% - 2 * var(--margin-horizontal));
+}
+
+.sider-layout-content h1:not(:nth-child(3)){
+    padding-top: 10px;
+}

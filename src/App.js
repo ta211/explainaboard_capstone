@@ -8,7 +8,7 @@ import ProjectsList from './pages/projects-list/ProjectsList';
 import ProjectOverview from './pages/project-overview/ProjectOverview';
 
 function App() {
-  const [page, setPage] = useState("list");
+  const [page, setPage] = useState("projects-list");
 
   return (
     <div className="App">
@@ -26,7 +26,7 @@ function App() {
           }
         }}
       >
-        {page == "list" ? <ProjectsList setPage={setPage}/> : <ProjectOverview setPage={setPage}/>}
+        {page == "projects-list" ? <ProjectsList setPage={setPage}/> : <ProjectOverview setPage={setPage}/>}
       </ConfigProvider>
     </div>
   );

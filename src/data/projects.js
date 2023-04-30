@@ -1,12 +1,13 @@
 const names = [
     "Taylor Marshall",
     "T. Steve Myers",
-    "Jacob B. Matthrews",
+    "Jacob B. Matthews",
     "Harper T. Montgomery",
+    "Terry",
     "Dorothy M. (PM)",
     "Alex Meridian (UX)",
     "Pablo W. (Data)",
-    "Orion Park (PM)",
+    "Orion Mark (PM)",
     "Meggie Trudon (Annotator)",
 ];
 
@@ -40,7 +41,7 @@ const public_projects = [
         task: "named-entity-recognition",
         dataset: "masakhaner-mos",
         owners: [
-            names[3],
+            names[4],
             names[0],
             names[7]
         ]
@@ -89,7 +90,7 @@ const public_projects = [
         dataset: "wmt-20|encs",
         owners: [
             names[3],
-            names[7],
+            names[9],
         ]
     },
     {

@@ -1,28 +1,5 @@
 :root {
-    --margin-horizontal: 40px;
     --gap-horizontal: 30px;
-}
-
-.project-overview {
-    margin: 20px var(--margin-horizontal) 60px var(--margin-horizontal);
-}
-
-.project-overview > button {
-    text-align: left;
-    width: min-content;
-    padding: 0;
-}
-
-.project-overview > nav {
-    margin-top: 15px;
-}
-
-.project-overview > * {
-    width: calc(100% - 2 * var(--margin-horizontal));
-}
-
-.project-overview h1:not(.metrics-title){
-    padding-top: 10px;
 }
 
 .projects-charts-container {

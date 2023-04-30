@@ -20,7 +20,7 @@ export default function ProjectCard({
             className="project-card"
             title={<a onClick={() => {
                 if (title.indexOf("[BERT]") != -1) {
-                    setPage("overview");
+                    setPage("project-overview");
                 }
             }}>
                 {title}

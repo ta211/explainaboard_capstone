@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Layout as AntdLayout, Menu } from "antd";
+import { Breadcrumb, Button, Input, Layout as AntdLayout, Menu, Space } from "antd";
 import logo from "../../logo-simple.png";
 
 import {
@@ -9,10 +9,11 @@ import {
     LineChartOutlined,
     ReadOutlined,
     FileOutlined,
-    GithubFilled
+    GithubFilled,
+    LeftOutlined,
 } from "@ant-design/icons";
 
-import { your_name } from "../../data/projects";
+import { your_name, your_projects } from "../../data/projects";
 
 import "./SiderLayout.css";
 
@@ -32,7 +33,12 @@ function getItem(
     };
 }
 
-export default function SiderLayout(props) {
+export default function SiderLayout({
+    pageName,
+    extra = null,
+    setPage,
+    children,
+}) {
     const [collapsed, setCollapsed] = useState(false);
     const deployment = process.env.REACT_APP_DEPLOYMENT;
 
@@ -79,9 +85,27 @@ export default function SiderLayout(props) {
             </div>
             </AntdLayout.Header>
             <AntdLayout.Content>
-            <div className="site-layout-content">
-                {props.children}
-            </div>
+                <Space.Compact className={`${pageName} sider-layout-content`} direction="vertical" align="start" block>
+                    <Space className={`${pageName}-header sider-layout-content-header`}>
+                        <Button type="text" className="projects-button" onClick={() => setPage("projects-list")}>
+                            <Space size="large">
+                                <LeftOutlined />
+                                Projects
+                            </Space>
+                        </Button>
+                        
+                        <Space className={`page-toolbar ${pageName}-toolbar`} size="large">
+                            {extra}
+                        </Space>
+                    </Space>
+
+                    <Breadcrumb className={`page-breadcrumb ${pageName}-breadcrumb`}>
+                        <Breadcrumb.Item>Projects</Breadcrumb.Item>
+                        <Breadcrumb.Item>{pageName == "projects-list" ? "All Projects": your_projects[0].name}</Breadcrumb.Item>
+                    </Breadcrumb>
+                    
+                    {children}
+                </Space.Compact>
             </AntdLayout.Content>
         </AntdLayout>
         </AntdLayout>
