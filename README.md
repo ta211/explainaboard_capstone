@@ -6,6 +6,19 @@ The project is developed in collaboration with [ExplainaBoard](https://explainab
 
 The project focuses on creating a better information architecture to organize the user-uploaded AI systems, allow easier system upload and comparison, as well as introducing model metadata as a new field in the system submission flow to allow AI developers to compare model performance with model designs. 
 
+# Understanding the Code
+
+As a React project, most of the functional code is in the `./src/` respository, which is mainly composed of `./src/components/`, `./src/pages/`, and `./src/data`. I will explain the purpose of each of the three respositories. 
+
+## Data
+
+As we do not have any authentic data from ExplainaBoard users, the currently data we used are randomly generated or pulled from open source AI development projects. 
+
+The `/data` repository currently has 2 files - `bert_project_systems.js` and `projects.js`, which respectively powers up the Project Overview page and the Projects List page.
+
+## Pages
+
+## Components
 
 # Running the App
 
