@@ -1,3 +1,12 @@
+# About this Project
+
+This is the final prototype for a CMU undergraduate HCI Capstone project. 
+
+The project is developed in collaboration with [ExplainaBoard](https://explainaboard.inspiredco.ai/) in order to create a better experience for AI developers to evaluate, diagnose, and revise their AI systems. 
+
+The project focuses on creating a better information architecture to organize the user-uploaded AI systems, allow easier system upload and comparison, as well as introducing model metadata as a new field in the system submission flow to allow AI developers to compare model performance with model designs. 
+
+
 # Running the App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
